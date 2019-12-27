@@ -4,7 +4,10 @@ import React, { Component } from 'react'
 export class SignIn extends Component {
 state={
     email: '',
-    password: ''
+    password: '',
+    firstname: '',
+    surname: '',
+    phone: ''
 }
 
 handleChange = (e) =>{
@@ -20,7 +23,7 @@ handleSubmit = (e) =>{
         return (
             <div className="container">
             <form onSubmit={this.handleSubmit}>
-                <h5>Zaloguj się</h5>
+                <h5>Zarejstruj się</h5>
                 <div className="input-fields">
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" onChange={this.handleChange}></input>
