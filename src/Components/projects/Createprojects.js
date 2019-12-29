@@ -19,7 +19,7 @@ handleSubmit = (e) =>{
 }
     render() {
         return (
-            <div className="container">
+            <div className="container BasiCont">
             <form onSubmit={this.handleSubmit}>
                 <h5>Dodaj Usługę</h5>
                 <div className="input-fields">

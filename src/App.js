@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './index.scss';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import Navbar from './Components/layout/Navbar';
 import Dashboard from './Components/dashboard/Dashboard';
@@ -15,7 +16,6 @@ function App() {
 
     <BrowserRouter>
       <div className="App">
-         <h1>BUDOWLANKA </h1>
          <Navbar/>
          <Switch>
             <Route exact path="/" component={Dashboard}/>

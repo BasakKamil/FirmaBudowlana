@@ -18,7 +18,7 @@ handleSubmit = (e) =>{
 }
     render() {
         return (
-            <div className="container">
+            <div className="container BasiCont">
             <form onSubmit={this.handleSubmit}>
                 <h5>Zaloguj się</h5>
                 <div className="input-fields">

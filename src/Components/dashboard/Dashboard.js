@@ -5,7 +5,7 @@ import ProjectList from '../projects/ProjectList';
 export class Dashboard extends Component {
     render() {
         return (
-            <div className="Dashborad coinainer">
+            <div className="coinainer BasiCont">
                 <div className="row">
                     <div className="col s12 m6">
                         <ProjectList/>
