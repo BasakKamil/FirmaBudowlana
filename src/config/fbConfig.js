@@ -13,10 +13,10 @@ import 'firebase/auth';
     appId: "1:797322482249:web:e30c6ba70fb5d78ca16598",
     measurementId: "G-X8PWJJ04X5"
   };
-  
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.firestore().settings({timestampsInSnapshots: true});
-  firebase.analytics();
+
 
   export default firebase;

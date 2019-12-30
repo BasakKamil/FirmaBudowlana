@@ -11,24 +11,27 @@ body {
   a{
     color: black;
   }
+  button{
+    margin: 1%;
+  }
  
 }
 
 .input-fields{
   label{
-     width: 50%;
+     width: 48%;
      float: left;
-     margin: 0;
+     margin: 1%;
   }
   input{
-     width: 50%;
+     width: 48%;
      float: left;
-     margin: 0;
+     margin: 1%;
   }
   textarea{
-    width: 50%;
+    width: 48%;
     float: left;
-    margin: 0;
+    margin: 1%;
  }
 }
 ul{
@@ -59,7 +62,8 @@ code {
   position: relative;
   display: block;
   height: auto;
-    min-height: 100px;
+  opacity: 0.6;
+    min-height: 50px;
     margin-bottom: 5%;
 
   .Kont{

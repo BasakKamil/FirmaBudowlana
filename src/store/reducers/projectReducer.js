@@ -10,10 +10,16 @@ const initState ={
 
 const projectReducer = (state = initState, action) => {
     //sprawdzamy typ akcji
+    // eslint-disable-next-line default-case
     switch(action.type){
         case 'CREATE_PROJECT':
-        console.log("Utworzylismy nowy projekt :)", action.project)
+            console.log("Utworzylismy nowy projekt :)", action.project);
+            return state;
+        case 'CREATE_PROJECT_ERROR':
+            console.log("Utworzylismy nowy projekt BŁĘDNIE :(", action.err);
+            return state;
+        default: 
+            return state;
     }
-    return state
 }
 export default projectReducer
