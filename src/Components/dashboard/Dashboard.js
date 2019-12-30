@@ -4,10 +4,14 @@ import ProjectList from '../projects/ProjectList';
 import {connect}from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import {compose}from 'redux';
+import { Redirect } from 'react-router-dom';
 
 export class Dashboard extends Component {
     render() {
-        const {projects} = this.props;
+        const {projects, auth} = this.props;
+//Jezeli nie jestesmy zalogowani to zwróci Redirect a jezeli jestesmy to przejdzie dalej :)
+        if (!auth.uid) return <Redirect to='/signin' />
+        //Tylko zalogowani:
         return (
             <div className="coinainer BasiCont">
                 <div className="row">
@@ -24,13 +28,20 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps =(state)=>{
+    console.log(state);
     return{
-        projects: state.project.projects
+        //te projekty ciagnie z utworzonych tutaj w App
+        // projects: state.project.projects
+
+        //te projekty zaciaga z Firestore!
+        projects: state.firestore.ordered.projects,
+        auth: state.firebase.auth
     }
 }
 
 export default compose(
-   firestoreConnect(['projects']), connect(mapStateToProps)
+    connect(mapStateToProps),
+    firestoreConnect([ {collection: 'projects'}])
 )(Dashboard) 
 
 // export default connect(mapStateToProps)(Dashboard)

@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
-
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signUp } from '../../store/actions/authActions';
 
 export class SignIn extends Component {
 state={
     email: '',
     password: '',
-    firstname: '',
-    surname: '',
+    firstName: '',
+    lastName: '',
     address: '',
     phone: '',
-    city: ''
+    city: '',
+    postcode: ''
 }
 
 handleChange = (e) =>{
@@ -19,9 +22,11 @@ handleChange = (e) =>{
 }
 handleSubmit = (e) =>{
     e.preventDefault();
- console.log(this.state);
+ this.props.signUp(this.state)
 }
     render() {
+        const { auth, authError } = this.props;
+        if(auth.uid) return <Redirect to='/'/>
         return (
             <div className="container BasiCont">
             <form onSubmit={this.handleSubmit}>
@@ -35,37 +40,53 @@ handleSubmit = (e) =>{
                     <input type="password" id="password" onChange={this.handleChange}></input>
                 </div>
                 <div className="input-fields">
-                    <label htmlFor="firstname">Imię :</label>
-                    <input type="text" id="firstname" onChange={this.handleChange}></input>
+                    <label htmlFor="firstName">Imię :</label>
+                    <input type="text" id="firstName" onChange={this.handleChange}></input>
                 </div>
                 <div className="input-fields">
-                    <label htmlFor="surname">Nazwisko :</label>
-                    <input type="text" id="surname" onChange={this.handleChange}></input>
+                    <label htmlFor="lastName">Nazwisko :</label>
+                    <input type="text" id="lastName" onChange={this.handleChange}></input>
+                </div>
+                <div className="input-fields">
+                    <label htmlFor="phone">Telefon :</label>
+                    <input type="text" id="phone" onChange={this.handleChange}></input>
                 </div>
                 <div className="input-fields">
                     <label htmlFor="address">Adres :</label>
                     <input type="text" id="address" onChange={this.handleChange}></input>
                 </div>
                 <div className="input-fields">
+                    <label htmlFor="postcode">Kod Pocztowy :</label>
+                    <input type="text" id="postcode" onChange={this.handleChange}></input>
+                </div>
+                <div className="input-fields">
                     <label htmlFor="city">Miasto :</label>
                     <input type="text" id="city" onChange={this.handleChange}></input>
                 </div>
-                <label htmlFor="city">Kraj : </label>
-                <select id="country">
-                         <option value="">Polska</option>
-                         <option value="dog">Anglia</option>
-                         <option value="cat">Niemcy</option>
-                         <option value="hamster">Holandia</option>
-                         
-                </select>
+          
+  
                 <div className="input-fields">
-                    <button className="btn btn-danger">Zaloguj</button>
+                    <button className="btn btn-danger">Zarejstruj się!</button>
                 </div>
+        <div className="ErrorInf">{authError ? <p>{authError}</p> : null}</div>
             </form>
             
         </div>
         )
     }
+
+}
+const mapStateToProps = (state) => {
+    return{
+        auth: state.firebase.auth,
+        authError: state.firebase.authError
+    }
 }
 
-export default SignIn
+const mapDispatchToProps = (dispatch) => {
+    return{
+        signUp: (newUser) => dispatch(signUp(newUser))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignIn)
