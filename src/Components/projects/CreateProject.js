@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {createProject} from '../../store/actions/projectActions';
 
 
 export class CreateProject extends Component {
@@ -15,7 +17,8 @@ handleChange = (e) =>{
 }
 handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.createProject(this.state);
 }
     render() {
         return (
@@ -35,7 +38,7 @@ handleSubmit = (e) =>{
                     <input type="text" id="date" onChange={this.handleChange}></input>
                 </div>
                 <div className="input-fields">
-                    <button className="btn btn-danger">Zaloguj</button>
+                    <button className="btn btn-danger">Utwórz Zlecenie!</button>
                 </div>
             </form>
             
@@ -44,4 +47,11 @@ handleSubmit = (e) =>{
     }
 }
 
-export default CreateProject
+const mapDispatchToProps = (dispatch) => {
+    return{
+        createProject: (project) => dispatch(createProject(project))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(CreateProject)
+//1 parametr zawsze mapStateToProps - 2 jest mapDispatch...

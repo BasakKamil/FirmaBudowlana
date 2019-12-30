@@ -8,7 +8,7 @@ import ThreeBack from './Components/Animacje/ThreeBack';
 import ProjectDetails from './Components/projects/ProjectDetails';
 import SignIn from './Components/auth/SignIn';
 import SignUp from './Components/auth/SignUp';
-import CreateProject from './Components/projects/Createprojects';
+import CreateProject from './Components/projects/CreateProject';
 
 function App() {
   

@@ -14,6 +14,23 @@ body {
  
 }
 
+.input-fields{
+  label{
+     width: 50%;
+     float: left;
+     margin: 0;
+  }
+  input{
+     width: 50%;
+     float: left;
+     margin: 0;
+  }
+  textarea{
+    width: 50%;
+    float: left;
+    margin: 0;
+ }
+}
 ul{
   li{
     
@@ -28,9 +45,12 @@ code {
 .BasiCont{
     display: block;
     z-index: 99999;
+    width: 60%;
+    margin: 5%;
     text-align: center;
     position: relative;
     background: lightslategrey;
+    margin: 0 auto !important;
 }
 
 .MenuBox{

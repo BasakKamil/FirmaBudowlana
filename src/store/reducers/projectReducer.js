@@ -9,6 +9,11 @@ const initState ={
 }
 
 const projectReducer = (state = initState, action) => {
+    //sprawdzamy typ akcji
+    switch(action.type){
+        case 'CREATE_PROJECT':
+        console.log("Utworzylismy nowy projekt :)", action.project)
+    }
     return state
 }
 export default projectReducer
