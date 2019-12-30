@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ProjectSummary = () =>{
+const ProjectSummary = ({project}) =>{
 return(
     <div className="card">
-        <title className="card-title">Projekt 1</title>
-        <p>1</p>
-        <p>Opis Projektu 1 </p>
+        <title className="card-title">{project.title}}</title>
+        <p>{project.id}</p>
+        <p>{project.content} </p>
     </div>
 )
 
