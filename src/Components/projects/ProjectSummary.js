@@ -1,15 +1,18 @@
 import React from 'react';
+import moment from 'moment';
 
 const ProjectSummary = (props) =>{
     const {project} = props;
-    console.log(project)
+    
 return(
-    <div className="card">
+    <div className="card Basicard">
         <title className="card-title">{project.title}</title>
         <h3>{project.title}</h3>
-        <p>{project.date}</p>
+        <p>Data Wykonaia: {project.date}</p>
         <p>{project.content} </p>
         <p>Zlecił: {project.firstName} {project.lastName[0]}.</p>
+        <p>{moment(project.createdAt.toDate()).calendar()}</p>
+       
     </div>
 )
 

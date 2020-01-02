@@ -8,8 +8,8 @@ import { Redirect } from 'react-router-dom';
 
 export class Dashboard extends Component {
     render() {
-        const {projects, auth} = this.props;
-//Jezeli nie jestesmy zalogowani to zwróci Redirect a jezeli jestesmy to przejdzie dalej :)
+        const {projects, auth, notification} = this.props;
+        //Jezeli nie jestesmy zalogowani to zwróci Redirect a jezeli jestesmy to przejdzie dalej :)
         if (!auth.uid) return <Redirect to='/signin' />
         //Tylko zalogowani:
         return (
@@ -19,7 +19,7 @@ export class Dashboard extends Component {
                         <ProjectList projects={projects}/>
                     </div>
                     <div className="col s12 m5">
-                         <Notifications/>
+                         <Notifications notification={notification}/>
                     </div>
                 </div>
             </div>
@@ -28,19 +28,24 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps =(state)=>{
+    console.log(state);
     return{
         //te projekty ciagnie z utworzonych tutaj w App
         // projects: state.project.projects
 
         //te projekty zaciaga z Firestore!
         projects: state.firestore.ordered.projects,
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        notification: state.firestore.ordered.notification
     }
 }
 
 export default compose(
     connect(mapStateToProps),
-    firestoreConnect([ {collection: 'projects'}])
+    firestoreConnect([ 
+        {collection: 'projects'},
+        {collection: 'notification', limit: 6, orderBy:['time','desc']}
+])
 )(Dashboard) 
 
 // export default connect(mapStateToProps)(Dashboard)

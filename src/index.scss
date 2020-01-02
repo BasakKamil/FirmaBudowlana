@@ -32,6 +32,7 @@ body {
     width: 48%;
     float: left;
     margin: 1%;
+    max-height: 300px;
  }
 }
 ul{
@@ -41,7 +42,29 @@ ul{
       list-style: none; 
   }
 }
-
+.BasiCard{
+  ul{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    li{
+      width: 100%;
+      display: block;
+      padding: 3%;
+      text-align: center;
+      background: lightgrey;
+      border-radius: 10px;
+      margin: 2%;
+      width: 96%;
+      .notuser{color: red;}
+      span{
+        width: 100%;
+        float: left;
+      }
+    }
+  }
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -52,13 +75,14 @@ code {
 .BasiCont{
     display: block;
     z-index: 99999;
-    width: 60%;
-    margin: 5%;
+    width: 80%;
     text-align: center;
     position: relative;
     background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
     opacity: 0.8;
-    margin: 0 auto !important;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    margin-top: 3%;
 }
 
 .MenuBox{
@@ -86,10 +110,22 @@ code {
   width: 80%;
   float: left;
 }
+.Basicard{
+  text-decoration: none;   
+  h3{
+      
+      background-color: black;
+      color: white;
+      padding: 2px;
+  }
+  p{
+    text-decoration: none;   
+  }
+}
 .ThreeBack{
     width: 100% !important;
     height: 100% !important;
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 0;
       z-index: 1;
@@ -111,4 +147,10 @@ code {
     margin-top: 2%;
     margin-bottom: 3%;
     color:  purple;
+}
+
+.project-list-section{
+ a{
+  text-decoration: none;   
+ }
 }

@@ -40,7 +40,7 @@ handleSubmit = (e) =>{
                 </div>
                 <div className="input-fields">
                     <label htmlFor="date">Data</label>
-                    <input type="text" id="date" onChange={this.handleChange}></input>
+                    <input type="date" id="date" onChange={this.handleChange}></input>
                 </div>
                 <div className="input-fields">
                     <button className="btn btn-success">Utwórz Zlecenie!</button>
