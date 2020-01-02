@@ -43,7 +43,7 @@ handleSubmit = (e) =>{
                     <input type="text" id="date" onChange={this.handleChange}></input>
                 </div>
                 <div className="input-fields">
-                    <button className="btn btn-danger">Utwórz Zlecenie!</button>
+                    <button className="btn btn-success">Utwórz Zlecenie!</button>
                 </div>
             </form>
             

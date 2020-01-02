@@ -35,9 +35,9 @@ handleSubmit = (e) =>{
                     <input type="password" id="password" onChange={this.handleChange}></input>
                 </div>
                 <div className="input-fields">
-                    <button className="btn btn-danger">Zaloguj</button>
+                    <button className="btn btn-success">Zaloguj</button>
                 </div>
-        <div className="ErrorInf">{authError ? <p>{authError}</p> : null}</div>
+                <div className="ErrorInf">{authError ? <p>{authError}</p> : null}</div>
             </form>
             
         </div>

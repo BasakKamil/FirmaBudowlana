@@ -12,10 +12,10 @@ if(!auth.id)return <Redirect to='/signin'/>
     return(
     <div className="container BasiCont">
         <div className="card">
-         <div className="card-content">
-  <span className="card-title"> {project.title}</span>
-  <p>{project.content} </p>
-  <p>{project.date}}</p>
+            <div className="card-content">
+            <span className="card-title"> {project.title}</span>
+            <p>{project.content} </p>
+            <p>{project.date}}</p>
          </div>
          </div>
     </div>

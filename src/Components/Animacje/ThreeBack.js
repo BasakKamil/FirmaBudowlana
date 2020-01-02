@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import { WebGLRenderer } from 'three';
-import smoke from '../../images/smoke1.png';
+import smoke from '../../images/build2.png';
 
 export class Animationback extends Component {
     constructor(){
@@ -27,25 +27,25 @@ export class Animationback extends Component {
         for(let p=0; p<60; p++){
             this.cloud = new THREE.Mesh(this.cloudGeo, this.cloudMaterial);
             this.cloud.position.set(
-                Math.random()*800 - 400,
-                500,
-                Math.random() *500 - 500
+                Math.random()*1600 - 1000,
+                400,
+                Math.random() *1400 - 1400
             ); 
             this.cloud.rotation.x = 1.16;
             this.cloud.rotation.y = -0.12;
             this.cloud.rotation.z = Math.random()*2*Math.PI;
-            this.cloud.material.opacity = 0.45;
+            this.cloud.material.opacity = 0.75;
             this.cloudParticles.push(this.cloud);
             this.scene.add(this.cloud); 
         }
     
         
     }
-    superSztorm = () =>{
+    superSztorm = () => {
         this.width = window.innerWidth;
         this.height = window.innerHeight;
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(40,this.width / this.height,1,1000 );
+        this.camera = new THREE.PerspectiveCamera(60,this.width / this.height,1,1000 );
         
         this.camera.position.z = 1;
         this.camera.rotation.x = 1.16;
@@ -63,7 +63,7 @@ export class Animationback extends Component {
     
         this.renderer = new WebGLRenderer();
         this.renderer.setSize(this.width,this.height);
-        this.scene.fog = new THREE.FogExp2(0x171b1f,0.001);
+        this.scene.fog = new THREE.FogExp2(0x93aac1,0.001);
         this.renderer.setClearColor(this.scene.fog.color);
         this.mount.appendChild(this.renderer.domElement);
     

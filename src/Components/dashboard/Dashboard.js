@@ -28,7 +28,6 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps =(state)=>{
-    console.log(state);
     return{
         //te projekty ciagnie z utworzonych tutaj w App
         // projects: state.project.projects
