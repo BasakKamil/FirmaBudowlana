@@ -21,7 +21,7 @@ handleSubmit = (e) =>{
 }
     render() {
         const {authError, auth} = this.props;
-        if(auth.id) return <Redirect to='/'/>
+        if(auth.uid) return <Redirect to='/'/>
         return (
             <div className="container BasiCont">
             <form onSubmit={this.handleSubmit}>
@@ -53,7 +53,7 @@ const mapStateToProps = (state) => {
 
 const mapDipatchToProps = (dispatch) => {
     return{
-        signIn: (creds) => dispatch(signIn(creds))
+        signIn: (credentionals) => dispatch(signIn(credentionals))
     }
 }
 
